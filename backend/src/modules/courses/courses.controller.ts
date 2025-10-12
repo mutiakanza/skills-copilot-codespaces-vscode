@@ -1,4 +1,14 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards, Request } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Put,
+  Delete,
+  Param,
+  Body,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { CoursesService } from './courses.service';
 
@@ -7,6 +17,14 @@ interface RequestWithUser extends Request {
     userId: string;
     role: string;
   };
+}
+
+interface CreateCourseDto {
+  title: string;
+  description?: string;
+  enrollKey?: string;
+  startDate?: Date;
+  endDate?: Date;
 }
 
 @Controller('courses')
@@ -25,7 +43,10 @@ export class CoursesController {
   }
 
   @Post()
-  create(@Body() createCourseDto: any, @Request() req: RequestWithUser) {
+  create(
+    @Body() createCourseDto: CreateCourseDto,
+    @Request() req: RequestWithUser,
+  ) {
     return this.coursesService.create({
       ...createCourseDto,
       instructorId: req.user.userId,
@@ -33,7 +54,10 @@ export class CoursesController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateCourseDto: any) {
+  update(
+    @Param('id') id: string,
+    @Body() updateCourseDto: Partial<CreateCourseDto>,
+  ) {
     return this.coursesService.update(id, updateCourseDto);
   }
 

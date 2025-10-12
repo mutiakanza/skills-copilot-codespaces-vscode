@@ -1,18 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../../common/prisma.service';
 
+interface CreateCourseData {
+  title: string;
+  description?: string;
+  enrollKey?: string;
+  startDate?: Date;
+  endDate?: Date;
+  instructorId: string;
+}
+
 @Injectable()
 export class CoursesService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(data: {
-    title: string;
-    description?: string;
-    enrollKey?: string;
-    startDate?: Date;
-    endDate?: Date;
-    instructorId: string;
-  }) {
+  async create(data: CreateCourseData) {
     return this.prisma.course.create({
       data,
       include: {
@@ -85,7 +87,7 @@ export class CoursesService {
     });
   }
 
-  async update(id: string, data: any) {
+  async update(id: string, data: Partial<CreateCourseData>) {
     return this.prisma.course.update({
       where: { id },
       data,

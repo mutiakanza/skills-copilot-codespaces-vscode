@@ -21,4 +21,3 @@ import { CoursesModule } from './modules/courses/courses.module';
   providers: [AppService],
 })
 export class AppModule {}
-
