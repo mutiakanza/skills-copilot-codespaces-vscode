@@ -1,0 +1,99 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: univ-postgres
+    environment:
+      POSTGRES_USER: univuser
+      POSTGRES_PASSWORD: univpass
+      POSTGRES_DB: univlearning
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - univ-network
+
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0
+    container_name: univ-keycloak
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB: postgres
+      KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
+      KC_DB_USERNAME: univuser
+      KC_DB_PASSWORD: univpass
+    ports:
+      - "8080:8080"
+    command: start-dev
+    depends_on:
+      - postgres
+    networks:
+      - univ-network
+
+  minio:
+    image: minio/minio:latest
+    container_name: univ-minio
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - univ-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../docker/Dockerfile.backend
+    container_name: univ-backend
+    environment:
+      DATABASE_URL: postgresql://univuser:univpass@postgres:5432/univlearning
+      KEYCLOAK_URL: http://keycloak:8080
+      MINIO_ENDPOINT: minio
+      MINIO_PORT: 9000
+      NODE_ENV: development
+    ports:
+      - "3001:3001"
+    depends_on:
+      - postgres
+      - keycloak
+      - minio
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - univ-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/Dockerfile.frontend
+    container_name: univ-frontend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:3001
+      NEXT_PUBLIC_KEYCLOAK_URL: http://localhost:8080
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    networks:
+      - univ-network
+
+volumes:
+  postgres_data:
+  minio_data:
+
+networks:
+  univ-network:
+    driver: bridge

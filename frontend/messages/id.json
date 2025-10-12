@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "courses": "Kursus Saya",
+    "quiz": "Kuis",
+    "assignments": "Tugas",
+    "grades": "Nilai",
+    "profile": "Profil"
+  },
+  "auth": {
+    "login": "Masuk",
+    "logout": "Keluar",
+    "loginWithSSO": "Masuk dengan SSO",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "forgotPassword": "Lupa kata sandi?",
+    "sessionTimeout": "Sesi Anda telah berakhir. Silakan masuk kembali."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcomeMessage": "Selamat datang, {name}",
+    "myCourses": "Kursus Saya",
+    "progress": "Progres",
+    "notifications": "Notifikasi",
+    "recentActivities": "Aktivitas Terbaru"
+  },
+  "course": {
+    "title": "Kursus",
+    "createCourse": "Buat Kursus Baru",
+    "enrollCourse": "Daftar Kursus",
+    "courseTitle": "Judul Kursus",
+    "description": "Deskripsi",
+    "instructor": "Pengajar",
+    "startDate": "Tanggal Mulai",
+    "endDate": "Tanggal Selesai",
+    "enrollmentKey": "Kode Pendaftaran",
+    "materials": "Materi",
+    "enrolled": "Terdaftar"
+  },
+  "material": {
+    "title": "Materi",
+    "addMaterial": "Tambah Materi",
+    "video": "Video",
+    "pdf": "PDF",
+    "text": "Teks",
+    "download": "Unduh",
+    "viewOnline": "Lihat Online"
+  },
+  "quiz": {
+    "title": "Kuis",
+    "createQuiz": "Buat Kuis",
+    "startQuiz": "Mulai Kuis",
+    "submitQuiz": "Kirim Jawaban",
+    "timeLimit": "Batas Waktu",
+    "score": "Skor",
+    "passingScore": "Nilai Minimum Lulus",
+    "question": "Pertanyaan",
+    "multipleChoice": "Pilihan Ganda",
+    "fillIn": "Isian",
+    "dragDrop": "Drag & Drop",
+    "yourAnswer": "Jawaban Anda",
+    "correctAnswer": "Jawaban Benar",
+    "explanation": "Penjelasan"
+  },
+  "assignment": {
+    "title": "Tugas",
+    "createAssignment": "Buat Tugas",
+    "uploadAssignment": "Unggah Tugas",
+    "submitted": "Terkirim",
+    "graded": "Dinilai",
+    "published": "Dipublikasi",
+    "status": "Status",
+    "dueDate": "Batas Waktu",
+    "uploadFile": "Unggah File",
+    "maxFileSize": "Ukuran maksimal: 20 MB"
+  },
+  "grading": {
+    "title": "Penilaian",
+    "gradeAssignment": "Nilai Tugas",
+    "score": "Nilai",
+    "feedback": "Umpan Balik",
+    "rubric": "Rubrik",
+    "saveGrade": "Simpan Nilai"
+  },
+  "admin": {
+    "title": "Administrasi",
+    "userManagement": "Manajemen Pengguna",
+    "addUser": "Tambah Pengguna",
+    "editUser": "Edit Pengguna",
+    "deleteUser": "Hapus Pengguna",
+    "assignRole": "Tetapkan Peran",
+    "student": "Mahasiswa",
+    "lecturer": "Dosen",
+    "admin": "Admin"
+  },
+  "common": {
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Edit",
+    "create": "Buat",
+    "update": "Perbarui",
+    "search": "Cari",
+    "filter": "Filter",
+    "sort": "Urutkan",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "success": "Berhasil",
+    "confirmation": "Konfirmasi",
+    "yes": "Ya",
+    "no": "Tidak"
+  }
+}
