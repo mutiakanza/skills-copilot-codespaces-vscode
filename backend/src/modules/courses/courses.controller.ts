@@ -2,13 +2,20 @@ import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards, Request } f
 import { AuthGuard } from '@nestjs/passport';
 import { CoursesService } from './courses.service';
 
+interface RequestWithUser extends Request {
+  user: {
+    userId: string;
+    role: string;
+  };
+}
+
 @Controller('courses')
 @UseGuards(AuthGuard('jwt'))
 export class CoursesController {
   constructor(private readonly coursesService: CoursesService) {}
 
   @Get()
-  findAll(@Request() req) {
+  findAll(@Request() req: RequestWithUser) {
     return this.coursesService.findAll(req.user.userId, req.user.role);
   }
 
@@ -18,7 +25,7 @@ export class CoursesController {
   }
 
   @Post()
-  create(@Body() createCourseDto: any, @Request() req) {
+  create(@Body() createCourseDto: any, @Request() req: RequestWithUser) {
     return this.coursesService.create({
       ...createCourseDto,
       instructorId: req.user.userId,

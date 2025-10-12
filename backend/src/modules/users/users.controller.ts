@@ -1,7 +1,7 @@
 import { Controller, Get, Put, Param, Body, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { UsersService } from './users.service';
-import { UserRole } from '../../generated/prisma';
+import { UserRole } from '@prisma/client';
 
 @Controller('users')
 @UseGuards(AuthGuard('jwt'))
