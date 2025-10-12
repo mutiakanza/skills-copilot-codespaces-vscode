@@ -1,0 +1,113 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "My Courses",
+    "quiz": "Quiz",
+    "assignments": "Assignments",
+    "grades": "Grades",
+    "profile": "Profile"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "loginWithSSO": "Login with SSO",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "sessionTimeout": "Your session has expired. Please login again."
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcomeMessage": "Welcome, {name}",
+    "myCourses": "My Courses",
+    "progress": "Progress",
+    "notifications": "Notifications",
+    "recentActivities": "Recent Activities"
+  },
+  "course": {
+    "title": "Course",
+    "createCourse": "Create New Course",
+    "enrollCourse": "Enroll Course",
+    "courseTitle": "Course Title",
+    "description": "Description",
+    "instructor": "Instructor",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "enrollmentKey": "Enrollment Key",
+    "materials": "Materials",
+    "enrolled": "Enrolled"
+  },
+  "material": {
+    "title": "Material",
+    "addMaterial": "Add Material",
+    "video": "Video",
+    "pdf": "PDF",
+    "text": "Text",
+    "download": "Download",
+    "viewOnline": "View Online"
+  },
+  "quiz": {
+    "title": "Quiz",
+    "createQuiz": "Create Quiz",
+    "startQuiz": "Start Quiz",
+    "submitQuiz": "Submit Answers",
+    "timeLimit": "Time Limit",
+    "score": "Score",
+    "passingScore": "Passing Score",
+    "question": "Question",
+    "multipleChoice": "Multiple Choice",
+    "fillIn": "Fill In",
+    "dragDrop": "Drag & Drop",
+    "yourAnswer": "Your Answer",
+    "correctAnswer": "Correct Answer",
+    "explanation": "Explanation"
+  },
+  "assignment": {
+    "title": "Assignment",
+    "createAssignment": "Create Assignment",
+    "uploadAssignment": "Upload Assignment",
+    "submitted": "Submitted",
+    "graded": "Graded",
+    "published": "Published",
+    "status": "Status",
+    "dueDate": "Due Date",
+    "uploadFile": "Upload File",
+    "maxFileSize": "Maximum size: 20 MB"
+  },
+  "grading": {
+    "title": "Grading",
+    "gradeAssignment": "Grade Assignment",
+    "score": "Score",
+    "feedback": "Feedback",
+    "rubric": "Rubric",
+    "saveGrade": "Save Grade"
+  },
+  "admin": {
+    "title": "Administration",
+    "userManagement": "User Management",
+    "addUser": "Add User",
+    "editUser": "Edit User",
+    "deleteUser": "Delete User",
+    "assignRole": "Assign Role",
+    "student": "Student",
+    "lecturer": "Lecturer",
+    "admin": "Admin"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "success": "Success",
+    "confirmation": "Confirmation",
+    "yes": "Yes",
+    "no": "No"
+  }
+}
