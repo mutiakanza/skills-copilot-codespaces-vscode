@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pembelajaran dan Penilaian Perguruan Tinggi</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1>📚 Sistem Pembelajaran Perguruan Tinggi</h1>
+            <div class="nav-links">
+                <a href="#" onclick="showSection('dashboard')">Dashboard</a>
+                <a href="#" onclick="showSection('courses')">Mata Kuliah</a>
+                <a href="#" onclick="showSection('assessments')">Penilaian</a>
+                <a href="#" onclick="showSection('grades')">Nilai</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-content">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="content-section active">
+            <h2>Dashboard</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Mata Kuliah</h3>
+                    <p class="stat-number" id="totalCourses">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Tugas Aktif</h3>
+                    <p class="stat-number" id="activeAssignments">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Rata-rata Nilai</h3>
+                    <p class="stat-number" id="averageGrade">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Progress Pembelajaran</h3>
+                    <p class="stat-number" id="learningProgress">0%</p>
+                </div>
+            </div>
+            
+            <div class="recent-activity">
+                <h3>Aktivitas Terkini</h3>
+                <ul id="activityList">
+                    <li>Sistem siap digunakan</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Courses Section -->
+        <section id="courses" class="content-section">
+            <div class="section-header">
+                <h2>Mata Kuliah</h2>
+                <button class="btn-primary" onclick="showAddCourseForm()">+ Tambah Mata Kuliah</button>
+            </div>
+            
+            <div id="addCourseForm" class="form-container" style="display: none;">
+                <h3>Tambah Mata Kuliah Baru</h3>
+                <form onsubmit="addCourse(event)">
+                    <input type="text" id="courseName" placeholder="Nama Mata Kuliah" required>
+                    <input type="text" id="courseCode" placeholder="Kode Mata Kuliah" required>
+                    <input type="text" id="courseInstructor" placeholder="Nama Dosen" required>
+                    <input type="number" id="courseCredits" placeholder="SKS" min="1" max="6" required>
+                    <button type="submit" class="btn-primary">Simpan</button>
+                    <button type="button" class="btn-secondary" onclick="hideAddCourseForm()">Batal</button>
+                </form>
+            </div>
+
+            <div id="coursesList" class="cards-grid"></div>
+        </section>
+
+        <!-- Assessments Section -->
+        <section id="assessments" class="content-section">
+            <div class="section-header">
+                <h2>Penilaian & Tugas</h2>
+                <button class="btn-primary" onclick="showAddAssessmentForm()">+ Tambah Penilaian</button>
+            </div>
+            
+            <div id="addAssessmentForm" class="form-container" style="display: none;">
+                <h3>Tambah Penilaian Baru</h3>
+                <form onsubmit="addAssessment(event)">
+                    <select id="assessmentCourse" required>
+                        <option value="">Pilih Mata Kuliah</option>
+                    </select>
+                    <input type="text" id="assessmentTitle" placeholder="Judul Tugas/Ujian" required>
+                    <select id="assessmentType" required>
+                        <option value="">Pilih Jenis Penilaian</option>
+                        <option value="Tugas">Tugas</option>
+                        <option value="Quiz">Quiz</option>
+                        <option value="UTS">UTS</option>
+                        <option value="UAS">UAS</option>
+                        <option value="Praktikum">Praktikum</option>
+                    </select>
+                    <input type="date" id="assessmentDueDate" required>
+                    <input type="number" id="assessmentWeight" placeholder="Bobot (%)" min="0" max="100" required>
+                    <button type="submit" class="btn-primary">Simpan</button>
+                    <button type="button" class="btn-secondary" onclick="hideAddAssessmentForm()">Batal</button>
+                </form>
+            </div>
+
+            <div id="assessmentsList"></div>
+        </section>
+
+        <!-- Grades Section -->
+        <section id="grades" class="content-section">
+            <h2>Nilai Mahasiswa</h2>
+            <div id="gradesTable"></div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
